@@ -10,3 +10,59 @@
 Задачу можно усложнить, реализовав проверку порядка режимов, и при его
 нарушении выводить соответствующее сообщение и завершать скрипт.
 """
+from time import sleep
+
+# Первый вариант
+class Trafficlight:
+    """
+    Класс для описания светофоров
+    """
+    __color = ''
+    def running(self):
+        """
+        Симуляция работы светофора
+        :return: Вывод в консоль состояния
+        """
+        self.__color = 'Красный'
+        print(f'Светофор переключился на: {self.__color}')
+        sleep(7)
+        self.__color = 'Желтый'
+        print(f'Светофор переключился на: {self.__color}')
+        sleep(2)
+        self.__color = 'Зеленый'
+        print(f'Светофор переключился на: {self.__color}')
+        sleep(10)
+        self.__color = ''
+
+
+my_trafficlight = Trafficlight()
+my_trafficlight.running()
+
+
+# Второй вариант
+class Trafficlight1:
+    """
+    Класс для описания светофоров
+    """
+    __color = ['Красный', 'Желтый', 'Зеленый']
+    def running(self):
+        """
+        Симуляция работы светофора
+        :return: Вывод в консоль состояния
+        """
+        i = 0
+        while i < len(self.__color):
+            if i == 0:
+                print(f'Загорается: {self.__color[i]}')
+                sleep(7)
+            elif i == 1:
+                print(f'Загорается: {self.__color[i]}')
+                sleep(2)
+            elif i == 2:
+                print(f'Загорается: {self.__color[i]}')
+                sleep(10)
+            i += 1
+
+
+my_trafficlight_v2 = Trafficlight1()
+my_trafficlight_v2.running()
